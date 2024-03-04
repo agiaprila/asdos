@@ -1,0 +1,65 @@
+{% extends "index.html" %}
+{% block title%}
+   Data 
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <h1 class="text-center alert alert-danger">DATABASE ASISTEN DOSEN</h1>
+      <div class="row">
+        <div class="col-sm-2"></div>
+
+        <!-- Contet Here -->
+        <div class="col-sm-8">
+            <h2>SiapAsdos List <button class="btn btn-primary pull right" data-toggle="modal" data-target= "#myModal" >ADD Student</button></h2>
+        {% with massages = get_flashed_messages() %}    
+        {% if massages %}    
+        {% for massages in massages %}  
+
+        <div class="alert alert-success alert-dissmissable" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          { message }
+        </div>
+        {%endfor%}
+        {%endif%}
+        {%endwith%}
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Rate Test Tulis</th>
+                    <th scope="col">Rate Matkul</th>
+                    <th scope="col">IPK</th>
+                    <th scope="col">Organisasi</th>
+                    <th scope="col">Keterampilan Applikasi</th>
+                    <th scope="col">Semester</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for row in asdos %}
+              <tr>{{row.0}}</tr>
+              <tr>{{row.1}}</tr>
+              <tr>{{row.2}}</tr>
+              <tr>{{row.3}}</tr>
+              <tr>{{row.4}}</tr>
+              <tr>{{row.5}}</tr>
+              <tr>{{row.6}}</tr>
+              <td>
+                  <a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="">Edit</a>
+                  <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="">Delete</a>
+              </td>
+              <!-- {% endfor %} -->
+              {% endblock %}
+            </tbody>
+        </table>
+
+        </div>
+        <!-- Content end -->
+
+
+      </div>
+</div>
